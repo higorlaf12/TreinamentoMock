@@ -60,4 +60,26 @@ public class DomainBuy {
         this.login = login;
         return this;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DomainBuy domainBuy = (DomainBuy) o;
+
+        if (id != null ? !id.equals(domainBuy.id) : domainBuy.id != null) return false;
+        if (insert != null ? !insert.equals(domainBuy.insert) : domainBuy.insert != null) return false;
+        if (num != null ? !num.equals(domainBuy.num) : domainBuy.num != null) return false;
+        return login != null ? login.equals(domainBuy.login) : domainBuy.login == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (insert != null ? insert.hashCode() : 0);
+        result = 31 * result + (num != null ? num.hashCode() : 0);
+        result = 31 * result + (login != null ? login.hashCode() : 0);
+        return result;
+    }
 }

@@ -3,7 +3,6 @@ package com.treinamento.Mock.treinamentoMock.controller;
 import com.treinamento.Mock.treinamentoMock.domain.DomainLogin;
 import com.treinamento.Mock.treinamentoMock.service.DomainBuyServer;
 import com.treinamento.Mock.treinamentoMock.service.DomainLoginServer;
-import org.hibernate.criterion.NullExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,34 +18,36 @@ public class DomainLoginController {
     private DomainLoginServer domainLoginServer;
 
     @Autowired
-    public DomainLoginController(DomainBuyServer domainBuyServer, DomainLoginServer domainLoginServer){
+    public DomainLoginController(DomainBuyServer domainBuyServer, DomainLoginServer domainLoginServer) {
         this.domainBuyServer = domainBuyServer;
         this.domainLoginServer = domainLoginServer;
     }
 
     @GetMapping
-    public List<DomainLogin> findAllDomainLogin(){return domainLoginServer.findAllDomainLogin();}
+    public List<DomainLogin> findAllDomainLogin() {
+        return domainLoginServer.findAllDomainLogin();
+    }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<DomainLogin> findOneDomainLogin(@PathVariable(name = "id") int id ){
+    public ResponseEntity<DomainLogin> findOneDomainLogin(@PathVariable(name = "id") int id) {
 
         try {
             DomainLogin search = domainLoginServer.findOneDomainLogin(id);
 
-            return new ResponseEntity<>(search,HttpStatus.OK);
+            return new ResponseEntity<>(search, HttpStatus.OK);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @PostMapping
-    public ResponseEntity<Object> saveDomainLogin(@RequestBody DomainLogin domainLogin){
+    public ResponseEntity<Object> saveDomainLogin(@RequestBody DomainLogin domainLogin) {
         try {
             domainLoginServer.saveDomainLogin(domainLogin);
             return ResponseEntity.status(HttpStatus.OK).body(domainLogin);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e);
         }
     }
