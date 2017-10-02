@@ -49,9 +49,9 @@ public class DomainBuyController {
     public ResponseEntity<Object> saveDomainBuy(@RequestBody DomainBuy domainBuy){
         try {
             domainBuyServer.saveDomainBuy(domainBuy);
-            return new ResponseEntity<Object>(domainBuy,HttpStatus.OK);
+            return new ResponseEntity<>(domainBuy,HttpStatus.OK);
         }catch (Exception e){
-            return new ResponseEntity<Object>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 

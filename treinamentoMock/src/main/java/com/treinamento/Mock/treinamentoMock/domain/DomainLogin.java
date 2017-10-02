@@ -24,8 +24,9 @@ public class DomainLogin {
     private String password;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "login")
-    private List<DomainBuy> domainBuyList;
+    @ManyToOne
+    @JoinColumn(name = "NUMIDDOMAINBUY")
+    private DomainBuy domainBuy;
 
     public Integer getId() {
         return id;
@@ -51,12 +52,12 @@ public class DomainLogin {
         this.password = password;
     }
 
-    public List<DomainBuy> getDomainBuyList() {
-        return domainBuyList;
+    public DomainBuy getDomainBuy() {
+        return domainBuy;
     }
 
-    public void setDomainBuyList(List<DomainBuy> domainBuyList) {
-        this.domainBuyList = domainBuyList;
+    public void setDomainBuy(DomainBuy domainBuy) {
+        this.domainBuy = domainBuy;
     }
 }
 

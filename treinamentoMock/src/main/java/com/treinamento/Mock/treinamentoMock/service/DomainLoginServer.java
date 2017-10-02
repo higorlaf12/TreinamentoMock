@@ -14,4 +14,5 @@ public interface DomainLoginServer {
     void saveDomainLogin(DomainLogin domainLogin);
 
 
+
 }
