@@ -31,13 +31,16 @@ public class DomainBuyController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<DomainBuy> findOneDomainBuy(@PathVariable(name = "id") Integer id){
+    public ResponseEntity<Object> findOneDomainBuy(@PathVariable(name = "id") Integer id){
         try {
             DomainBuy search = domainBuyServer.findOneDomainBuy(id);
-            return new ResponseEntity<DomainBuy>(search,HttpStatus.OK);
-
+            if (search.getId() != null){
+                return new ResponseEntity<>(search,HttpStatus.OK);
+            }
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }catch (Exception e){
-            return new ResponseEntity<DomainBuy>(HttpStatus.INTERNAL_SERVER_ERROR);
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
     }
