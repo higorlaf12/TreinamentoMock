@@ -3,6 +3,7 @@ package com.treinamento.Mock.treinamentoMock.controller;
 import com.treinamento.Mock.treinamentoMock.domain.DomainLogin;
 import com.treinamento.Mock.treinamentoMock.service.DomainBuyServer;
 import com.treinamento.Mock.treinamentoMock.service.DomainLoginServer;
+import org.hibernate.criterion.NullExpression;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,15 +41,11 @@ public class DomainLoginController {
     }
 
     @PostMapping
-    public @ResponseBody ResponseEntity saveDomainLogin(@RequestBody DomainLogin domainLogin){
-        try{
-            DomainLogin domainLogin1 = domainLoginServer.findOneDomainLogin(domainLogin.getId());
-            if ( domainLogin1 != null ) {
-                domainLoginServer.saveDomainLogin(domainLogin);
+    public ResponseEntity<Object> saveDomainLogin(@RequestBody DomainLogin domainLogin){
+        try {
+            domainLoginServer.saveDomainLogin(domainLogin);
+            return ResponseEntity.status(HttpStatus.OK).body(domainLogin);
 
-                return ResponseEntity.ok().build();
-            }else
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e);
         }

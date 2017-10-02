@@ -1,5 +1,6 @@
 package com.treinamento.Mock.treinamentoMock.service.serviceimpl;
 
+import com.treinamento.Mock.treinamentoMock.domain.DomainBuy;
 import com.treinamento.Mock.treinamentoMock.domain.DomainLogin;
 import com.treinamento.Mock.treinamentoMock.repository.DomainLoginRepository;
 import com.treinamento.Mock.treinamentoMock.service.DomainLoginServer;
@@ -33,5 +34,7 @@ public class DomainLoginServiceImpl implements DomainLoginServer {
     public void saveDomainLogin(DomainLogin domainLogin) {
         domainLoginRepository.save(domainLogin);
     }
+
+
 
 }

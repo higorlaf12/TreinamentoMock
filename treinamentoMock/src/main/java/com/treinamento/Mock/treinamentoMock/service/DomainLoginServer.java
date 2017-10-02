@@ -1,5 +1,6 @@
 package com.treinamento.Mock.treinamentoMock.service;
 
+import com.treinamento.Mock.treinamentoMock.domain.DomainBuy;
 import com.treinamento.Mock.treinamentoMock.domain.DomainLogin;
 
 import java.util.List;
@@ -10,7 +11,7 @@ public interface DomainLoginServer {
 
     DomainLogin findOneDomainLogin(Integer id);
 
-    void saveDomainLogin (DomainLogin domainLogin);
+    void saveDomainLogin(DomainLogin domainLogin);
 
 
 }

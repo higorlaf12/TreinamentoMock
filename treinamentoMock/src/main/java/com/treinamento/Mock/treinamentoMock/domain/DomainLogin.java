@@ -31,35 +31,81 @@ public class DomainLogin {
         return id;
     }
 
-    public DomainLogin id(Integer id) {
+    public void setId(Integer id) {
         this.id = id;
-        return this;
     }
 
     public String getLogin() {
         return login;
     }
 
-    public DomainLogin login(String login) {
+    public void setLogin(String login) {
         this.login = login;
-        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public DomainLogin password(String password) {
+    public void setPassword(String password) {
         this.password = password;
-        return this;
     }
 
     public List<DomainBuy> getDomainBuyList() {
         return domainBuyList;
     }
 
-    public DomainLogin domainBuyList(List<DomainBuy> domainBuyList) {
+    public void setDomainBuyList(List<DomainBuy> domainBuyList) {
         this.domainBuyList = domainBuyList;
-        return this;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//    public Integer getId() {
+//        return id;
+//    }
+//
+//    public DomainLogin id(Integer id) {
+//        this.id = id;
+//        return this;
+//    }
+//
+//    public String getLogin() {
+//        return login;
+//    }
+//
+//    public DomainLogin login(String login) {
+//        this.login = login;
+//        return this;
+//    }
+//
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public DomainLogin password(String password) {
+//        this.password = password;
+//        return this;
+//    }
+//
+//    public List<DomainBuy> getDomainBuyList() {
+//        return domainBuyList;
+//    }
+//
+//    public DomainLogin domainBuyList(List<DomainBuy> domainBuyList) {
+//        this.domainBuyList = domainBuyList;
+//        return this;
+//    }
