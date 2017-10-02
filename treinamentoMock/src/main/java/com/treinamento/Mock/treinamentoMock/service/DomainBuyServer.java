@@ -12,6 +12,6 @@ public interface DomainBuyServer {
 
     void saveDomainBuy(DomainBuy domainBuy);
 
-    void deleteDomainBuy(DomainBuy domainBuy);
+    void deleteDomainBuy(int id);
 
 }

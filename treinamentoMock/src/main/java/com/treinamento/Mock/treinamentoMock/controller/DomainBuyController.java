@@ -54,14 +54,14 @@ public class DomainBuyController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity deleteDomainBuy(@PathVariable(name = "id") Integer id, @RequestBody DomainBuy domainBuy) {
+    public ResponseEntity deleteDomainBuy(@PathVariable(name = "id") Integer id) {
         try {
-            DomainBuy domainBuy1 = domainBuyServer.findOneDomainBuy(domainBuy.getId());
+            DomainBuy domainBuy1 = domainBuyServer.findOneDomainBuy(id);
             if (domainBuy1 == null) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
             }
-            domainBuyServer.deleteDomainBuy(domainBuy.id(id));
-            return ResponseEntity.status(HttpStatus.OK).body(domainBuy.getId());
+            domainBuyServer.deleteDomainBuy(id);
+            return ResponseEntity.status(HttpStatus.OK).body(id);
 
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e);

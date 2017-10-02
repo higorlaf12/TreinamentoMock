@@ -34,7 +34,8 @@ public class DomainBuyServiceImpl implements DomainBuyServer{
     }
 
     @Override
-    public void deleteDomainBuy(DomainBuy domainBuy) {
+    public void deleteDomainBuy(int id) {
+        DomainBuy domainBuy = findOneDomainBuy(id);
         domainBuyRepository.delete(domainBuy);
     }
 }
