@@ -34,7 +34,7 @@ public class DomainBuyController {
             DomainBuy search = domainBuyServer.findOneDomainBuy(id);
             if (search == null) {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
+        }
             return new ResponseEntity<>(search, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();

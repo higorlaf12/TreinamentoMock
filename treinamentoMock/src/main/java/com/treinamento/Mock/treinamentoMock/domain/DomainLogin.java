@@ -31,24 +31,27 @@ public class DomainLogin {
         return id;
     }
 
-    public void setId(Integer id) {
+    public DomainLogin id(Integer id) {
         this.id = id;
+        return this;
     }
 
     public String getLogin() {
         return login;
     }
 
-    public void setLogin(String login) {
+    public DomainLogin login(String login) {
         this.login = login;
+        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public DomainLogin password(String password) {
         this.password = password;
+        return this;
     }
 
     public DomainBuy getDomainBuy() {
